@@ -19,7 +19,8 @@ namespace Recipe_App
 
         private void showlistButton_Click(object sender, EventArgs e)
         {
-
+            Listof_items_screen showList = new Listof_items_screen();
+            showList.Show();
         }
 
         private void addButton_Click(object sender, EventArgs e)

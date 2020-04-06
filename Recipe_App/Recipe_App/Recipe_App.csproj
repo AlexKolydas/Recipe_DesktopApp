@@ -58,6 +58,12 @@
     <Compile Include="First_screen.Designer.cs">
       <DependentUpon>First_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listof_items_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listof_items_screen.Designer.cs">
+      <DependentUpon>Listof_items_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Add_item_screen.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="First_screen.resx">
       <DependentUpon>First_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listof_items_screen.resx">
+      <DependentUpon>Listof_items_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
