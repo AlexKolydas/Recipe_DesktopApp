@@ -10,22 +10,26 @@ using System.Windows.Forms;
 
 namespace Recipe_App
 {
-    public partial class First_screen : Form
+    public partial class Add_item_screen : Form
     {
-        public First_screen()
+        public Add_item_screen()
         {
             InitializeComponent();
         }
 
-        private void showlistButton_Click(object sender, EventArgs e)
+        private void ingredientBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void addDescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
-            Add_item_screen add = new Add_item_screen();
-            add.Show();
+
+        }
+
+        private void dropdownCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

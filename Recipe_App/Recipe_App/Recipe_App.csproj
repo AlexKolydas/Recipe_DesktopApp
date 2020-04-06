@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_item_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_item_screen.Designer.cs">
+      <DependentUpon>Add_item_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="First_screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Add_item_screen.resx">
+      <DependentUpon>Add_item_screen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="First_screen.resx">
       <DependentUpon>First_screen.cs</DependentUpon>
     </EmbeddedResource>
