@@ -31,5 +31,10 @@ namespace Recipe_App
         {
 
         }
+
+        private void titleTextBox_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
     }
 }

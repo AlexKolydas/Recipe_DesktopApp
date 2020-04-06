@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label AddItemLabel;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,37 +36,23 @@
             this.addDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.dropdownCategory = new System.Windows.Forms.ComboBox();
             this.addItemButton = new System.Windows.Forms.Button();
-            AddItemLabel = new System.Windows.Forms.Label();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // AddItemLabel
-            // 
-            AddItemLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            AddItemLabel.AutoSize = true;
-            AddItemLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            AddItemLabel.Location = new System.Drawing.Point(0, 0);
-            AddItemLabel.Margin = new System.Windows.Forms.Padding(0);
-            AddItemLabel.Name = "AddItemLabel";
-            AddItemLabel.Size = new System.Drawing.Size(968, 30);
-            AddItemLabel.TabIndex = 0;
-            AddItemLabel.Text = "Add Item";
-            AddItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
-            this.tableLayoutPanel1.Controls.Add(AddItemLabel, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.titleTextBox, 0, 0);
             this.tableLayoutPanel1.ForeColor = System.Drawing.Color.DarkGreen;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(968, 52);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -172,6 +157,22 @@
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = true;
             // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.titleTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Add Title"});
+            this.titleTextBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.titleTextBox.Location = new System.Drawing.Point(183, 3);
+            this.titleTextBox.Multiline = true;
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(601, 46);
+            this.titleTextBox.TabIndex = 0;
+            this.titleTextBox.Text = "Add Title";
+            this.titleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
+            // 
             // Add_item_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +201,6 @@
         private System.Windows.Forms.RichTextBox addDescriptionTextBox;
         private System.Windows.Forms.ComboBox dropdownCategory;
         private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.TextBox titleTextBox;
     }
 }
