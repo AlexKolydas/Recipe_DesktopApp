@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Recipe_App
 {
-    public partial class Form1 : Form
+    public partial class First_screen : Form
     {
-        public Form1()
+        public First_screen()
         {
             InitializeComponent();
+        }
+
+        private void showlistButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
