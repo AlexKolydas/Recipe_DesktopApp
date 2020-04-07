@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ingredientBox = new System.Windows.Forms.RichTextBox();
+            this.addIngredientTextBox = new System.Windows.Forms.RichTextBox();
             this.addDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.dropdownCategory = new System.Windows.Forms.ComboBox();
             this.addItemButton = new System.Windows.Forms.Button();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +52,25 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(968, 52);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.titleTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Add Title"});
+            this.titleTextBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.titleTextBox.Location = new System.Drawing.Point(183, 3);
+            this.titleTextBox.Multiline = true;
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(601, 46);
+            this.titleTextBox.TabIndex = 0;
+            this.titleTextBox.Text = "Add Title";
+            this.titleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -66,7 +82,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ingredientBox, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.addIngredientTextBox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.addDescriptionTextBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.dropdownCategory, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.addItemButton, 1, 2);
@@ -105,19 +121,19 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Add Description";
             // 
-            // ingredientBox
+            // addIngredientTextBox
             // 
-            this.ingredientBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.addIngredientTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ingredientBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingredientBox.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.ingredientBox.Location = new System.Drawing.Point(3, 53);
-            this.ingredientBox.Name = "ingredientBox";
-            this.ingredientBox.Size = new System.Drawing.Size(478, 400);
-            this.ingredientBox.TabIndex = 2;
-            this.ingredientBox.Text = "-\n-\n-\n-\n-";
-            this.ingredientBox.TextChanged += new System.EventHandler(this.ingredientBox_TextChanged);
+            this.addIngredientTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addIngredientTextBox.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.addIngredientTextBox.Location = new System.Drawing.Point(3, 53);
+            this.addIngredientTextBox.Name = "addIngredientTextBox";
+            this.addIngredientTextBox.Size = new System.Drawing.Size(478, 400);
+            this.addIngredientTextBox.TabIndex = 2;
+            this.addIngredientTextBox.Text = "-\n-\n-\n-\n-";
+            this.addIngredientTextBox.TextChanged += new System.EventHandler(this.ingredientBox_TextChanged);
             // 
             // addDescriptionTextBox
             // 
@@ -136,10 +152,8 @@
             // dropdownCategory
             // 
             this.dropdownCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dropdownCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropdownCategory.FormattingEnabled = true;
-            this.dropdownCategory.Items.AddRange(new object[] {
-            "Food",
-            "Sweet"});
             this.dropdownCategory.Location = new System.Drawing.Point(360, 461);
             this.dropdownCategory.Name = "dropdownCategory";
             this.dropdownCategory.Size = new System.Drawing.Size(121, 21);
@@ -156,22 +170,7 @@
             this.addItemButton.TabIndex = 5;
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = true;
-            // 
-            // titleTextBox
-            // 
-            this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.titleTextBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "Add Title"});
-            this.titleTextBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.titleTextBox.Location = new System.Drawing.Point(183, 3);
-            this.titleTextBox.Multiline = true;
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(601, 46);
-            this.titleTextBox.TabIndex = 0;
-            this.titleTextBox.Text = "Add Title";
-            this.titleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
             // Add_item_screen
             // 
@@ -183,6 +182,7 @@
             this.Name = "Add_item_screen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_item_screen";
+            this.Load += new System.EventHandler(this.Add_item_screen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -197,7 +197,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox ingredientBox;
+        private System.Windows.Forms.RichTextBox addIngredientTextBox;
         private System.Windows.Forms.RichTextBox addDescriptionTextBox;
         private System.Windows.Forms.ComboBox dropdownCategory;
         private System.Windows.Forms.Button addItemButton;

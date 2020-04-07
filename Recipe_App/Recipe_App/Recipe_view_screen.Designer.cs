@@ -52,7 +52,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 41);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(783, 41);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // titleOfSelectedFood
@@ -63,7 +63,7 @@
             this.titleOfSelectedFood.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleOfSelectedFood.Location = new System.Drawing.Point(3, 0);
             this.titleOfSelectedFood.Name = "titleOfSelectedFood";
-            this.titleOfSelectedFood.Size = new System.Drawing.Size(794, 25);
+            this.titleOfSelectedFood.Size = new System.Drawing.Size(777, 25);
             this.titleOfSelectedFood.TabIndex = 0;
             this.titleOfSelectedFood.Text = "Title Of Selected Food";
             this.titleOfSelectedFood.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -89,7 +89,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.10891F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.89109F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(797, 404);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 431);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // ingredientsLabel
@@ -100,7 +100,7 @@
             this.ingredientsLabel.AutoSize = true;
             this.ingredientsLabel.Location = new System.Drawing.Point(3, 0);
             this.ingredientsLabel.Name = "ingredientsLabel";
-            this.ingredientsLabel.Size = new System.Drawing.Size(191, 50);
+            this.ingredientsLabel.Size = new System.Drawing.Size(186, 54);
             this.ingredientsLabel.TabIndex = 0;
             this.ingredientsLabel.Text = "Ingredients";
             this.ingredientsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,9 +111,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(200, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(195, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(594, 50);
+            this.descriptionLabel.Size = new System.Drawing.Size(582, 54);
             this.descriptionLabel.TabIndex = 1;
             this.descriptionLabel.Text = "Description";
             this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,10 +123,10 @@
             this.ingredientsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ingredientsTextBox.Location = new System.Drawing.Point(3, 53);
+            this.ingredientsTextBox.Location = new System.Drawing.Point(3, 57);
             this.ingredientsTextBox.Multiline = true;
             this.ingredientsTextBox.Name = "ingredientsTextBox";
-            this.ingredientsTextBox.Size = new System.Drawing.Size(191, 301);
+            this.ingredientsTextBox.Size = new System.Drawing.Size(186, 324);
             this.ingredientsTextBox.TabIndex = 2;
             // 
             // descriptionTextBox
@@ -134,17 +134,17 @@
             this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(200, 53);
+            this.descriptionTextBox.Location = new System.Drawing.Point(195, 57);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(594, 301);
+            this.descriptionTextBox.Size = new System.Drawing.Size(582, 324);
             this.descriptionTextBox.TabIndex = 3;
             // 
             // deleteRecipeButton
             // 
             this.deleteRecipeButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteRecipeButton.Location = new System.Drawing.Point(712, 360);
+            this.deleteRecipeButton.Location = new System.Drawing.Point(695, 387);
             this.deleteRecipeButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.deleteRecipeButton.Name = "deleteRecipeButton";
             this.deleteRecipeButton.Size = new System.Drawing.Size(75, 41);
@@ -156,7 +156,7 @@
             // 
             this.editRecipeButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.editRecipeButton.Location = new System.Drawing.Point(10, 360);
+            this.editRecipeButton.Location = new System.Drawing.Point(10, 387);
             this.editRecipeButton.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.editRecipeButton.Name = "editRecipeButton";
             this.editRecipeButton.Size = new System.Drawing.Size(75, 41);
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(783, 477);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Recipe_view_screen";
