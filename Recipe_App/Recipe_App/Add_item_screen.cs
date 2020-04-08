@@ -47,18 +47,5 @@ namespace Recipe_App
 
         }
 
-        private void addItemButton_Click(object sender, EventArgs e)
-        {
-            //insert items from the form into the database
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                string dat = "Insert into [Table](Title,Category,Ingredients,Description) Values('" + titleTextBox.Text + "','" + dropdownCategory.Text + "','" + addIngredientTextBox.Text + "','" + addDescriptionTextBox.Text + "')";
-                //SqlConnection sqlCon = new SqlConnection(connectionString);yh
-                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
-                sqlCon.Open();
-                sqlCmd.ExecuteNonQuery();
-                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
-            }
-        }
     }
 }

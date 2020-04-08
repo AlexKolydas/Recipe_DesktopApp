@@ -170,7 +170,6 @@
             this.addItemButton.TabIndex = 5;
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = true;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
             // Add_item_screen
             // 
