@@ -61,5 +61,18 @@ namespace Recipe_App
             }
         }
 
+        private void deleteRecipeButton_Click(object sender, EventArgs e)
+        {
+            //Delete the recipe from the database
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                string dat = "DELETE from [Table] WHERE Title='" + Listof_items_screen.foodTitle + "'";
+                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
+                sqlCon.Open();
+                sqlCmd.ExecuteNonQuery();
+                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
+            }
+            this.Close(); //Closes the form programmatically.
+        }
     }
 }

@@ -153,6 +153,7 @@
             this.deleteRecipeButton.TabIndex = 4;
             this.deleteRecipeButton.Text = "Delete";
             this.deleteRecipeButton.UseVisualStyleBackColor = true;
+            this.deleteRecipeButton.Click += new System.EventHandler(this.deleteRecipeButton_Click);
             // 
             // descriptionTextBox
             // 
@@ -174,6 +175,7 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Recipe_view_screen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe_view_screen";
             this.Load += new System.EventHandler(this.Recipe_view_screen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
