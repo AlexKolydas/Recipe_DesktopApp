@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.titleOfSelectedFood = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.ingredientsTextBox = new System.Windows.Forms.RichTextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -37,6 +36,7 @@
             this.editRecipeButton = new System.Windows.Forms.Button();
             this.deleteRecipeButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.titleOfSelectedFood = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -54,19 +54,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(783, 41);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // titleOfSelectedFood
-            // 
-            this.titleOfSelectedFood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleOfSelectedFood.AutoSize = true;
-            this.titleOfSelectedFood.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleOfSelectedFood.Location = new System.Drawing.Point(3, 0);
-            this.titleOfSelectedFood.Name = "titleOfSelectedFood";
-            this.titleOfSelectedFood.Size = new System.Drawing.Size(777, 25);
-            this.titleOfSelectedFood.TabIndex = 0;
-            this.titleOfSelectedFood.Text = "Title Of Selected Food";
-            this.titleOfSelectedFood.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
@@ -97,6 +84,7 @@
             this.ingredientsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ingredientsTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.ingredientsTextBox.Location = new System.Drawing.Point(3, 57);
             this.ingredientsTextBox.Name = "ingredientsTextBox";
             this.ingredientsTextBox.ReadOnly = true;
@@ -141,6 +129,7 @@
             this.editRecipeButton.TabIndex = 5;
             this.editRecipeButton.Text = "Edit";
             this.editRecipeButton.UseVisualStyleBackColor = true;
+            this.editRecipeButton.Click += new System.EventHandler(this.editRecipeButton_Click);
             // 
             // deleteRecipeButton
             // 
@@ -167,6 +156,18 @@
             this.descriptionTextBox.TabIndex = 6;
             this.descriptionTextBox.Text = "";
             // 
+            // titleOfSelectedFood
+            // 
+            this.titleOfSelectedFood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.titleOfSelectedFood.Font = new System.Drawing.Font("Modern No. 20", 15.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleOfSelectedFood.Location = new System.Drawing.Point(3, 3);
+            this.titleOfSelectedFood.Name = "titleOfSelectedFood";
+            this.titleOfSelectedFood.ReadOnly = true;
+            this.titleOfSelectedFood.Size = new System.Drawing.Size(777, 35);
+            this.titleOfSelectedFood.TabIndex = 0;
+            this.titleOfSelectedFood.Text = "Title of Selected food";
+            // 
             // Recipe_view_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +180,6 @@
             this.Text = "Recipe_view_screen";
             this.Load += new System.EventHandler(this.Recipe_view_screen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
@@ -194,8 +194,8 @@
         private System.Windows.Forms.Label ingredientsLabel;
         private System.Windows.Forms.Button editRecipeButton;
         private System.Windows.Forms.Button deleteRecipeButton;
-        private System.Windows.Forms.Label titleOfSelectedFood;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
         private System.Windows.Forms.RichTextBox ingredientsTextBox;
+        private System.Windows.Forms.RichTextBox titleOfSelectedFood;
     }
 }
