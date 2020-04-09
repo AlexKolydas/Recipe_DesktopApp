@@ -44,7 +44,6 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(169, 20);
             this.searchTextBox.TabIndex = 4;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // label1
             // 
@@ -84,10 +83,12 @@
             this.sweetListView.GridLines = true;
             this.sweetListView.HideSelection = false;
             this.sweetListView.Location = new System.Drawing.Point(400, 45);
+            this.sweetListView.MultiSelect = false;
             this.sweetListView.Name = "sweetListView";
             this.sweetListView.Size = new System.Drawing.Size(391, 351);
             this.sweetListView.TabIndex = 3;
             this.sweetListView.UseCompatibleStateImageBehavior = false;
+            this.sweetListView.DoubleClick += new System.EventHandler(this.sweetListView_DoubleClick);
             // 
             // tableLayoutPanel1
             // 
@@ -121,12 +122,15 @@
             this.foodListView.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.foodListView.FullRowSelect = true;
             this.foodListView.GridLines = true;
+            this.foodListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.foodListView.HideSelection = false;
             this.foodListView.Location = new System.Drawing.Point(3, 45);
+            this.foodListView.MultiSelect = false;
             this.foodListView.Name = "foodListView";
             this.foodListView.Size = new System.Drawing.Size(391, 351);
             this.foodListView.TabIndex = 2;
             this.foodListView.UseCompatibleStateImageBehavior = false;
+            this.foodListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.foodListView_MouseDoubleClick);
             // 
             // Listof_items_screen
             // 

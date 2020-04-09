@@ -14,15 +14,14 @@ namespace Recipe_App
     public partial class Listof_items_screen : Form
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alex\source\repos\ArekkusuTaichou\Recipe_DesktopApp\Recipe_App\Recipe_App\Database.mdf;Integrated Security=True;";
-
+        
+        //This string is for getting the Title of the food we choose from the viewlist.
+        //It's static because we will use it to other classes.
+        public static string foodTitle; 
+        
         public Listof_items_screen()
         {
             InitializeComponent();
-        }
-
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Listof_items_screen_Load(object sender, EventArgs e)
@@ -61,19 +60,47 @@ namespace Recipe_App
                 {
                     if (query.Contains("Food") == true)
                     {
-                        ListViewItem lv = new ListViewItem(dataReader[0].ToString());
-                        foodListView.Items.Add(lv);
+                        ListViewItem lv_food = new ListViewItem(dataReader[0].ToString()); //Title
+                        lv_food.SubItems.Add(dataReader[1].ToString()); //Category
+                        lv_food.SubItems.Add(dataReader[2].ToString()); //Ingredients
+                        lv_food.SubItems.Add(dataReader[3].ToString()); //Description
+
+                        foodListView.Items.Add(lv_food);
                     }
                     else
                     {
-                        ListViewItem lv1 = new ListViewItem(dataReader[0].ToString());
-                        sweetListView.Items.Add(lv1);
+                        ListViewItem lv_sweets = new ListViewItem(dataReader[0].ToString()); //Title
+                        lv_sweets.SubItems.Add(dataReader[1].ToString()); //Category
+                        lv_sweets.SubItems.Add(dataReader[2].ToString()); //Ingredients
+                        lv_sweets.SubItems.Add(dataReader[3].ToString()); //Description
+                        sweetListView.Items.Add(lv_sweets);
                     }
+                    
                 }
                 dataReader.Close();
                 cmd.Dispose();
             }
                 sqlCon.Close();
+        }
+
+        private void foodListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //Get the name of the title which were double clicked from the Viewlist.
+            foodTitle = foodListView.SelectedItems[0].SubItems[0].Text; 
+
+            //Click on item in viewlist and open the window that displays the recipe of that item.
+            Recipe_view_screen add = new Recipe_view_screen();
+            add.Show();
+        }
+
+        private void sweetListView_DoubleClick(object sender, EventArgs e)
+        {
+            //Get the name of the title which were double clicked from the Viewlist.
+            foodTitle = sweetListView.SelectedItems[0].SubItems[0].Text;
+
+            //Click on item in viewlist and open the window that displays the recipe of that item.
+            Recipe_view_screen add = new Recipe_view_screen();
+            add.Show();
         }
     }
 }

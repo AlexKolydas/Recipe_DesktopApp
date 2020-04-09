@@ -70,6 +70,7 @@
     <Compile Include="Add_item_screen.Designer.cs">
       <DependentUpon>Add_item_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database_Items_Class.cs" />
     <Compile Include="First_screen.cs">
       <SubType>Form</SubType>
     </Compile>

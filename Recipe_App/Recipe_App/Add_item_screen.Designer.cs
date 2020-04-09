@@ -70,7 +70,6 @@
             this.titleTextBox.TabIndex = 0;
             this.titleTextBox.Text = "Add Title";
             this.titleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -133,7 +132,6 @@
             this.addIngredientTextBox.Size = new System.Drawing.Size(478, 400);
             this.addIngredientTextBox.TabIndex = 2;
             this.addIngredientTextBox.Text = "-\n-\n-\n-\n-";
-            this.addIngredientTextBox.TextChanged += new System.EventHandler(this.ingredientBox_TextChanged);
             // 
             // addDescriptionTextBox
             // 
@@ -158,7 +156,6 @@
             this.dropdownCategory.Name = "dropdownCategory";
             this.dropdownCategory.Size = new System.Drawing.Size(121, 21);
             this.dropdownCategory.TabIndex = 4;
-            this.dropdownCategory.SelectedIndexChanged += new System.EventHandler(this.dropdownCategory_SelectedIndexChanged);
             // 
             // addItemButton
             // 
@@ -170,6 +167,7 @@
             this.addItemButton.TabIndex = 5;
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
             // Add_item_screen
             // 
@@ -181,7 +179,6 @@
             this.Name = "Add_item_screen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_item_screen";
-            this.Load += new System.EventHandler(this.Add_item_screen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

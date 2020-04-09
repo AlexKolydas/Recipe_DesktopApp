@@ -23,29 +23,23 @@ namespace Recipe_App
 
         }
 
-        private void ingredientBox_TextChanged(object sender, EventArgs e)
+        private void addItemButton_Click(object sender, EventArgs e)
         {
-
+            //insert items from the form into the database
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                string dat = "Insert into [Table](Title,Category,Ingredients,Description) Values('" + titleTextBox.Text + "','" + dropdownCategory.Text + "','" + addIngredientTextBox.Text + "','" + addDescriptionTextBox.Text + "')";
+                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
+                sqlCon.Open();
+                sqlCmd.ExecuteNonQuery();
+                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
+            }
+            this.Close(); //Closes the form programmatically.
         }
 
         private void addDescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void dropdownCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void titleTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Add_item_screen_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
