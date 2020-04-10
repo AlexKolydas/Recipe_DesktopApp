@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -37,6 +38,7 @@
             this.addDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.dropdownCategory = new System.Windows.Forms.ComboBox();
             this.addItemButton = new System.Windows.Forms.Button();
+            this.runAlwaysTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +72,7 @@
             this.titleTextBox.TabIndex = 0;
             this.titleTextBox.Text = "Add Title";
             this.titleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -156,6 +159,7 @@
             this.dropdownCategory.Name = "dropdownCategory";
             this.dropdownCategory.Size = new System.Drawing.Size(121, 21);
             this.dropdownCategory.TabIndex = 4;
+            this.dropdownCategory.SelectedIndexChanged += new System.EventHandler(this.dropdownCategory_SelectedIndexChanged);
             // 
             // addItemButton
             // 
@@ -168,6 +172,10 @@
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = true;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            // 
+            // runAlwaysTimer
+            // 
+            this.runAlwaysTimer.Tick += new System.EventHandler(this.runAlwaysTimer_Tick);
             // 
             // Add_item_screen
             // 
@@ -198,5 +206,6 @@
         private System.Windows.Forms.ComboBox dropdownCategory;
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.Timer runAlwaysTimer;
     }
 }
