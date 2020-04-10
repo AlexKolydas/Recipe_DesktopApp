@@ -19,7 +19,7 @@ namespace Recipe_App
         public Add_item_screen()
         {
             InitializeComponent();
-            runAlwaysTimer.Start();
+            runAlwaysTimer.Start(); //Added a timer to run all the time.
             addItemButton.Enabled = false;
 
             dropdownCategory.Items.Add("Food");

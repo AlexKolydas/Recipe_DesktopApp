@@ -55,11 +55,9 @@ namespace Recipe_App
                             ingredientsTextBox.Text = item.Ingredients;
                             descriptionTextBox.Text = item.Description;
                         }
-                    }
-                    
+                    }                   
                     connection.Close();
                 }
-
             }
         }
 
@@ -107,9 +105,7 @@ namespace Recipe_App
                 isEdit = false;
 
                 editRecipeInDatabase();
-
             }
-
         }
 
         private void editRecipeInDatabase()
@@ -124,6 +120,12 @@ namespace Recipe_App
                 //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
             }
             this.Close(); //Closes the form programmatically.
+        }
+
+        private void titleOfSelectedFood_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Exported Into Text File!");
+            Export_To_TXT.exportDB(); //Call function to export the recipe into a text file.
         }
     }
 }
