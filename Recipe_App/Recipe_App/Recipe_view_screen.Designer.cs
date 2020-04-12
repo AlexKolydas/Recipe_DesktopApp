@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.titleOfSelectedFood = new System.Windows.Forms.RichTextBox();
+            this.titleOfSelectedFood = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.ingredientsTextBox = new System.Windows.Forms.RichTextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.editRecipeButton = new System.Windows.Forms.Button();
             this.deleteRecipeButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -57,16 +59,18 @@
             // 
             // titleOfSelectedFood
             // 
-            this.titleOfSelectedFood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleOfSelectedFood.Font = new System.Drawing.Font("Modern No. 20", 15.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleOfSelectedFood.Location = new System.Drawing.Point(3, 3);
+            this.titleOfSelectedFood.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titleOfSelectedFood.AutoSize = true;
+            this.titleOfSelectedFood.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleOfSelectedFood.Location = new System.Drawing.Point(216, 2);
             this.titleOfSelectedFood.Name = "titleOfSelectedFood";
-            this.titleOfSelectedFood.ReadOnly = true;
-            this.titleOfSelectedFood.Size = new System.Drawing.Size(777, 35);
+            this.titleOfSelectedFood.Size = new System.Drawing.Size(350, 36);
             this.titleOfSelectedFood.TabIndex = 0;
-            this.titleOfSelectedFood.Text = "Title of Selected food";
-            this.titleOfSelectedFood.DoubleClick += new System.EventHandler(this.titleOfSelectedFood_DoubleClick);
+            this.titleOfSelectedFood.Text = "Title Of Selected Food";
+            this.titleOfSelectedFood.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.titleOfSelectedFood, "Double Click On Title Export The Recipe!");
+            this.titleOfSelectedFood.MouseLeave += new System.EventHandler(this.titleOfSelectedFood_MouseLeave);
+            this.titleOfSelectedFood.MouseHover += new System.EventHandler(this.titleOfSelectedFood_MouseHover);
             // 
             // tableLayoutPanel3
             // 
@@ -181,6 +185,7 @@
             this.Text = "Recipe_view_screen";
             this.Load += new System.EventHandler(this.Recipe_view_screen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
@@ -197,6 +202,7 @@
         private System.Windows.Forms.Button deleteRecipeButton;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
         private System.Windows.Forms.RichTextBox ingredientsTextBox;
-        private System.Windows.Forms.RichTextBox titleOfSelectedFood;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label titleOfSelectedFood;
     }
 }

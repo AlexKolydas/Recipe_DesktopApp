@@ -24,10 +24,9 @@ namespace Recipe_App
     /// </summary>
     public class Export_To_TXT
     {
+        //Create folder Recipies(If not exist. And add the name of the food_recipe.txt into it.
         static string V = @"C:\Recipies\" + Listof_items_screen.foodTitle + "_recipe.txt";
         static string folder_Creation = @"C:\Recipies\";
-        //static string V = @"C:\Recipies\teeest.txt";
-
 
         public static void exportDB() 
         {

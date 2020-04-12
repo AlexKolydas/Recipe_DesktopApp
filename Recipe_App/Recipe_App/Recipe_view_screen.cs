@@ -26,7 +26,7 @@ namespace Recipe_App
         {
             //Display the title that is being selected from the viewlist in the previous screen.
             titleOfSelectedFood.Text = Listof_items_screen.foodTitle;
-            titleOfSelectedFood.SelectionAlignment = HorizontalAlignment.Center;//Align Title text in the center.
+            //titleOfSelectedFood.SelectionAlignment = HorizontalAlignment.Center;//Align Title text in the center.
 
             //Create a list of this object to be filled with data from the database.
             List<Database_Items_Class> itemsFromDb = new List<Database_Items_Class>();
@@ -124,8 +124,22 @@ namespace Recipe_App
 
         private void titleOfSelectedFood_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Exported Into Text File!");
+            MessageBox.Show("Exported Into C:\\Recipies Folder!");
             Export_To_TXT.exportDB(); //Call function to export the recipe into a text file.
         }
+
+        private void titleOfSelectedFood_MouseHover(object sender, EventArgs e)
+        {
+            titleOfSelectedFood.BackColor = Color.DarkCyan;
+        }
+
+        private void titleOfSelectedFood_MouseLeave(object sender, EventArgs e)
+        {
+            titleOfSelectedFood.BackColor = Color.Transparent;
+        }
+
+        [System.ComponentModel.Browsable(false)]
+        public override System.Drawing.Image BackgroundImage { get; set; }
+
     }
 }
