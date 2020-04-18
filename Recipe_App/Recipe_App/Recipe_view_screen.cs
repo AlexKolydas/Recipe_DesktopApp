@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 
 namespace Recipe_App
 {
     public partial class Recipe_view_screen : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alex\source\repos\ArekkusuTaichou\Recipe_DesktopApp\Recipe_App\Recipe_App\Database.mdf;Integrated Security=True;";
         bool isEdit; //for the edit button
+        //sqlite object
+        Database_Items_Class databaseObject = new Database_Items_Class();
 
         public Recipe_view_screen()
         {
@@ -30,48 +26,45 @@ namespace Recipe_App
 
             //Create a list of this object to be filled with data from the database.
             List<Database_Items_Class> itemsFromDb = new List<Database_Items_Class>();
-            
+
             //Search database Title and put all items with that title into a list.
-            string query = "SELECT * from [Table] WHERE Title='" + Listof_items_screen.foodTitle+"'";
+            string query = "SELECT * from recipies WHERE Title='" + Listof_items_screen.foodTitle + "'";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SQLiteCommand cmd = new SQLiteCommand(query, databaseObject.myConnection))
             {
-                using (SqlCommand cmd = new SqlCommand(query,connection))
+                databaseObject.myConnection.Open();
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            Database_Items_Class item = new Database_Items_Class(); //Create the object and fill it's variables with database data.
-                            item.Title = reader.GetString(0);
-                            item.Category = reader.GetString(1);
-                            item.Ingredients = reader.GetString(2);
-                            //ingredientsTextBox.Text = reader.GetString(2);
-                            item.Description = reader.GetString(3);
-                            itemsFromDb.Add(item);
+                        Database_Items_Class item = new Database_Items_Class(); //Create the object and fill it's variables with database data.
+                        item.Title = reader.GetString(0);
+                        item.Category = reader.GetString(1);
+                        item.Ingredients = reader.GetString(2);
+                        //ingredientsTextBox.Text = reader.GetString(2);
+                        item.Description = reader.GetString(3);
+                        itemsFromDb.Add(item);
 
-                            //Display the corresponding database cells to the text boxes.
-                            ingredientsTextBox.Text = item.Ingredients;
-                            descriptionTextBox.Text = item.Description;
-                        }
-                    }                   
-                    connection.Close();
+                        //Display the corresponding database cells to the text boxes.
+                        ingredientsTextBox.Text = item.Ingredients;
+                        descriptionTextBox.Text = item.Description;
+                    }
                 }
+                databaseObject.myConnection.Close();
             }
         }
+
 
         private void deleteRecipeButton_Click(object sender, EventArgs e)
         {
             //Delete the recipe from the database
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                string dat = "DELETE from [Table] WHERE Title='" + Listof_items_screen.foodTitle + "'";
-                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
-                sqlCon.Open();
-                sqlCmd.ExecuteNonQuery();
-                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
-            }
+            string dat = "DELETE from recipies WHERE Title='" + Listof_items_screen.foodTitle + "'";
+            SQLiteCommand sqlCmd = new SQLiteCommand(dat, databaseObject.myConnection);
+            databaseObject.myConnection.Open();
+            sqlCmd.ExecuteNonQuery();
+            databaseObject.myConnection.Close();
+
+            MessageBox.Show("Recipe Has Successfully Been Deleted");
             this.Close(); //Closes the form programmatically.
         }
 
@@ -111,14 +104,12 @@ namespace Recipe_App
         private void editRecipeInDatabase()
         {
             //Edit the recipe from the database
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                string dat = "UPDATE [Table] SET Ingredients='" + ingredientsTextBox.Text + "', Description='" + descriptionTextBox.Text + "' WHERE Title='" + titleOfSelectedFood.Text + "'";
-                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
-                sqlCon.Open();
-                sqlCmd.ExecuteNonQuery();
-                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
-            }
+            string dat = "UPDATE recipies SET Ingredients='" + ingredientsTextBox.Text + "', Description='" + descriptionTextBox.Text + "' WHERE Title='" + titleOfSelectedFood.Text + "'";
+            SQLiteCommand sqlCmd = new SQLiteCommand(dat, databaseObject.myConnection);
+            databaseObject.myConnection.Open();
+            sqlCmd.ExecuteNonQuery();
+            databaseObject.myConnection.Close();
+
             this.Close(); //Closes the form programmatically.
         }
 
@@ -137,9 +128,6 @@ namespace Recipe_App
         {
             titleOfSelectedFood.BackColor = Color.Transparent;
         }
-
-        [System.ComponentModel.Browsable(false)]
-        public override System.Drawing.Image BackgroundImage { get; set; }
 
     }
 }

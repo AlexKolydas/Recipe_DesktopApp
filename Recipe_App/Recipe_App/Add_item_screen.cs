@@ -8,17 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SQLite;
+
 
 namespace Recipe_App
 {
     public partial class Add_item_screen : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alex\source\repos\ArekkusuTaichou\Recipe_DesktopApp\Recipe_App\Recipe_App\Database.mdf;Integrated Security=True;";
-        bool correctTitle =false;
+        //sqlite object
+        Database_Items_Class databaseObject = new Database_Items_Class();
+
+        bool correctTitle = false;
         bool correctDropdown = false;
         public Add_item_screen()
         {
             InitializeComponent();
+
             runAlwaysTimer.Start(); //Added a timer to run all the time.
             addItemButton.Enabled = false;
 
@@ -28,26 +33,40 @@ namespace Recipe_App
 
         private void addItemButton_Click(object sender, EventArgs e)
         {
-            //insert items from the form into the database
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                string dat = "Insert into [Table](Title,Category,Ingredients,Description) Values('" + titleTextBox.Text + "','" + dropdownCategory.Text + "','" + addIngredientTextBox.Text + "','" + addDescriptionTextBox.Text + "')";
-                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
-                sqlCon.Open();
-                sqlCmd.ExecuteNonQuery();
-                //sqlCon.Close();  We don't need that since "using(SqlConnection sqlCon....)) closes the connection automatically
-            }
+
+            string query = "Insert into recipies (Title, Category, Ingredients, Description) Values('" + titleTextBox.Text + "','" + dropdownCategory.Text + "','" + addIngredientTextBox.Text + "','" + addDescriptionTextBox.Text + "')";
+            SQLiteCommand sqlcmd = new SQLiteCommand(query, databaseObject.myConnection);
+            databaseObject.OpenConnection();
+            var resultExcecution = sqlcmd.ExecuteNonQuery();
+            databaseObject.CloseConnection();
+            Console.WriteLine("Rows Added: {0}", resultExcecution);
             this.Close(); //Closes the form programmatically.
+
         }
 
-        private void addDescriptionTextBox_TextChanged(object sender, EventArgs e)
+        private bool findIfTitleExists()
         {
-
+            using (SqlConnection sqlCon = new SqlConnection(Database_Items_Class.connectionString))
+            {
+                string dat = "SELECT * FROM [TABLE]";
+                SqlCommand sqlCmd = new SqlCommand(dat, sqlCon);
+                sqlCon.Open();
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (titleTextBox.Text == reader[0].ToString())
+                    {
+                        return true;
+                    }
+                }
+                reader.Close();
+            }
+            return false;
         }
 
         private void dropdownCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dropdownCategory.Text=="Food" || dropdownCategory.Text == "Sweet")
+            if (dropdownCategory.Text == "Food" || dropdownCategory.Text == "Sweet")
             {
                 correctDropdown = true;
             }
@@ -76,7 +95,7 @@ namespace Recipe_App
 
         private void enableAddButton()
         {
-            if(correctTitle && correctDropdown)
+            if (correctTitle && correctDropdown)
             {
                 addItemButton.Enabled = true;
             }

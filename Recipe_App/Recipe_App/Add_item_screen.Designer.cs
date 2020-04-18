@@ -148,7 +148,6 @@
             this.addDescriptionTextBox.Size = new System.Drawing.Size(478, 400);
             this.addDescriptionTextBox.TabIndex = 3;
             this.addDescriptionTextBox.Text = "";
-            this.addDescriptionTextBox.TextChanged += new System.EventHandler(this.addDescriptionTextBox_TextChanged);
             // 
             // dropdownCategory
             // 

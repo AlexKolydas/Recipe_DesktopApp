@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.foodListView = new System.Windows.Forms.ListView();
@@ -36,22 +35,13 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.Location = new System.Drawing.Point(853, 411);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(91, 20);
-            this.searchTextBox.TabIndex = 4;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 26.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(282, 7);
+            this.label1.Location = new System.Drawing.Point(340, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 36);
             this.label1.TabIndex = 0;
@@ -63,12 +53,10 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.78338F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.21662F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.foodListView, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.searchTextBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dropDownSelectCategory, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -96,7 +84,7 @@
             this.foodListView.MultiSelect = false;
             this.foodListView.Name = "foodListView";
             this.foodListView.ShowItemToolTips = true;
-            this.foodListView.Size = new System.Drawing.Size(825, 352);
+            this.foodListView.Size = new System.Drawing.Size(941, 352);
             this.foodListView.TabIndex = 2;
             this.foodListView.UseCompatibleStateImageBehavior = false;
             this.foodListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.foodListView_MouseDoubleClick);
@@ -109,7 +97,7 @@
             "All Food",
             "Food",
             "Sweets"});
-            this.dropDownSelectCategory.Location = new System.Drawing.Point(355, 434);
+            this.dropDownSelectCategory.Location = new System.Drawing.Point(413, 434);
             this.dropDownSelectCategory.Name = "dropDownSelectCategory";
             this.dropDownSelectCategory.Size = new System.Drawing.Size(121, 21);
             this.dropDownSelectCategory.TabIndex = 5;
@@ -133,8 +121,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListView foodListView;

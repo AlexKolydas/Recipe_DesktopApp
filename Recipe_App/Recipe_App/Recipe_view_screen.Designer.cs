@@ -69,6 +69,7 @@
             this.titleOfSelectedFood.Text = "Title Of Selected Food";
             this.titleOfSelectedFood.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.titleOfSelectedFood, "Double Click On Title Export The Recipe!");
+            this.titleOfSelectedFood.DoubleClick += new System.EventHandler(this.titleOfSelectedFood_DoubleClick);
             this.titleOfSelectedFood.MouseLeave += new System.EventHandler(this.titleOfSelectedFood_MouseLeave);
             this.titleOfSelectedFood.MouseHover += new System.EventHandler(this.titleOfSelectedFood_MouseHover);
             // 
